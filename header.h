@@ -18,14 +18,16 @@ class Course {
         Course(string instruct);
         Course(string instruct, string n);
         Course(string instruct, string n, string desc);
-        void printStudents();
-        void printAssignments();
+        void const printStudents();
+        void const printAssignments();
+        void addStudent(Student* addedStudent);
+        void addAssignment(Assignment* addedAssignment);
     private:
         string instructor;
         string name;
-        string desc;
-        vector<Student> students;
-        vector<Assignment> assignments;
+        string description;
+        vector<Student*> students;
+        vector<Assignment*> assignments;
 };
 
 class Student {
@@ -35,6 +37,7 @@ class Student {
         Student(string n, int num);
         void printDetails();
         //void printGrades();
+        void addGradebook(string courseName, Gradebook* gbook);
         void print();
     private:
         string name;
@@ -48,7 +51,7 @@ class Assignment {
         Assignment(string n);
         Assignment(string n, string desc);
         Assignment(string n, string desc, double total);
-        double getTotalPoints();
+        double const getTotalPoints();
         void print();
     private:
         string name;

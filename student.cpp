@@ -16,9 +16,7 @@ Student::Student(string n, int num) {
 }
 
 void Student::printDetails() {
-    cout << "Name: " << name << endl;
-    cout << "ID: " << id << endl;
-    cout << endl;
+    cout << "Name: " << name << "\tID: " << id << endl;
 }
 
 /*
