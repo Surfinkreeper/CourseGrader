@@ -15,11 +15,21 @@ Assignment::Assignment(string n, string desc) : Assignment(n) {
 }
 
 Assignment::Assignment(string n, string desc, double total) : Assignment(n,desc) {
-    totalPoints = total;
+    if( total < 0.0 ) {
+        cout << "Total points cant be less than 0. Total score set to 1" << endl;
+        totalPoints = 1;
+    }
+    else {
+        totalPoints = total;
+    }
 }
 
 double const Assignment::getTotalPoints() {
     return totalPoints;
+}
+
+string const Assignment::getName() {
+    return name;
 }
 
 void Assignment::print() {
