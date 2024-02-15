@@ -1,19 +1,8 @@
 #include "header.h"
 
-Student::Student() {
-    name = "John Doe";
-    id = 000000000;
-}
-
-Student::Student(string n) {
-    name = n;
-    id = 000000000;
-}
-
-Student::Student(string n, int num) {
-    name = n;
-    id = num;
-}
+Student::Student(   const string name,
+                    const int id    )
+                    : name(name), id(id) {}
 
 void Student::printDetails() {
     cout << "Name: " << name << "\tID: " << id << endl;

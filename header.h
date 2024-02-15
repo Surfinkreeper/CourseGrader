@@ -24,12 +24,17 @@ class Assignment;
 class Gradebook;
 
 class Course {
+    private:
+        string name, description, instructor;
+        unordered_map<Student*,Gradebook*> students; //Acts as roster and gradebook holder
+        vector<Assignment*> assignments;
+        bool isStudentInCourse(Student* checkStudent);
+        bool isAssignmentInCourse(Assignment* checkAssignment);
     public:
         // Constructors
-        Course();
-        Course(string instruct);
-        Course(string instruct, string n);
-        Course(string instruct, string n, string desc);
+        Course( const string name = "BLANK NAME",
+                const string description = "BLANK DESC",
+                const string instructor = "BLANK INSTRUCTOR");
         // Accessors / Print
         void const printStudents();
         void const printAssignments();
@@ -42,22 +47,17 @@ class Course {
         void gradeStudent(Student* student, Assignment* assignment, double score);
 
         void print();
-    private:
-        string instructor;
-        string name;
-        string description;
-        unordered_map<Student*,Gradebook*> students; //Acts as roster and gradebook holder
-        vector<Assignment*> assignments;
-        bool isStudentInCourse(Student* checkStudent);
-        bool isAssignmentInCourse(Assignment* checkAssignment);
 };
 
 class Student {
+    private:
+        string name;
+        int id;
+        unordered_map<string,Gradebook*> grademap;
     public:
         // Constructors
-        Student();
-        Student(string n);
-        Student(string n, int num);
+        Student(const string name = "John Doe",
+                const int id = 0    );
         // Accessors / Print
         string const getName();
         void printDetails();
@@ -67,32 +67,31 @@ class Student {
         bool isAssignmentInStudent(string const courseName, Assignment* const assignment);
 
         void print();
-    private:
-        string name;
-        int id;
-        unordered_map<string,Gradebook*> grademap;
 };
 class Assignment {
+    private:
+        string name;
+        string description;
+        double totalPoints;
     public:
         // Constructors
-        Assignment();
-        Assignment(string n);
-        Assignment(string n, string desc);
-        Assignment(string n, string desc, double total);
+        Assignment( const string name = "BLANK NAME",
+                    const string description = "BLANK DESCRIPTION",
+                    double total = 1.0);
         // Accessors / Print
         double const getTotalPoints();
         string const getName();
 
         void print();
-    private:
-        string name;
-        string description;
-        double totalPoints;
 };
 
 class Gradebook {
+    private:
+        vector<pair<Assignment*, double>> grades;
+        // Helper function
+        double getPercent();
     public:
-        // Constructors
+        // Constructor
         Gradebook();
 
         void addEntry(Assignment* key, double score);
@@ -101,10 +100,6 @@ class Gradebook {
         void setScore(Assignment* gradingAssignment, double score);
 
         void const printScores();
-    private:
-        vector<pair<Assignment*, double>> grades;
-        // Helper function
-        double getPercent();
 };
 
 #endif

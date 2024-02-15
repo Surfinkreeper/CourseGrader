@@ -1,22 +1,9 @@
 #include "header.h"
 
-Course::Course() {
-    instructor = "BLANK COURSE";
-    name = "BLANK COURSE";
-    description = "BLANK COURSE";
-}
-
-Course::Course(string instruct) : Course() {
-    instructor = instruct;
-}
-
-Course::Course(string instruct, string n) : Course(instruct) {
-    name = n;
-}
-
-Course::Course(string instruct, string n, string desc) : Course(instruct, n) {
-    description = desc;
-}
+Course::Course( const string name,
+                const string description,
+                const string instructor ) 
+                : name(name), description(description), instructor(instructor) {}
 
 void const Course::printStudents() {
     if( students.empty() ) {

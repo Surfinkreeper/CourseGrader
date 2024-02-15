@@ -33,9 +33,11 @@ bool Gradebook::isAssignmentInGradebook(Assignment* assignment) {
 }
 
 void Gradebook::setScore(Assignment* gradingAssignment, double score) {
+    // Checks if already there
     if( !isAssignmentInGradebook(gradingAssignment) ) {
         cout << "Assignment is not is student's gradebook." << endl;
     }
+    // Sets score
     else {
         for(auto& pair : grades) {
         if( gradingAssignment->getName() == pair.first->getName() ) {

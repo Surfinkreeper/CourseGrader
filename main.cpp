@@ -6,7 +6,7 @@ int main() {
     Daniel->printDetails();
 
     //Creates a new course and prints out its details
-    Course Course1 = Course("Mr. Salameh", "CS1C", "Coding class");
+    Course Course1("CS1C", "Coding class", "Mr. Salameh");
     Course1.print();
 
     //Adds student to course and prints roster
@@ -50,7 +50,7 @@ int main() {
     Course1.printStudentsGrades(Dorrin);
 
     //Creates new course and adds same students to it
-    Course Course2 = Course("Ms. Dory", "PS21", "Model United Nations");
+    Course Course2("PS21", "Model United Nations", "Ms. Dory");
     Course2.addStudent(Daniel);
     Course2.addStudent(Dorrin);
 

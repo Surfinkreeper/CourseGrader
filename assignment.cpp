@@ -1,27 +1,14 @@
 #include "header.h"
 
-Assignment::Assignment() {
-    name = "BLANK ASSIGNMENT";
-    description = "N/A";
-    totalPoints = 0.0;
-}
-
-Assignment::Assignment(string n) : Assignment() {
-    name = n;
-}
-
-Assignment::Assignment(string n, string desc) : Assignment(n) {
-    description = desc;
-}
-
-Assignment::Assignment(string n, string desc, double total) : Assignment(n,desc) {
+Assignment::Assignment( const string name,
+                        const string description,
+                        double total    )
+                        : name(name), description(description) {
     if( total < 0.0 ) {
         cout << "Total points cant be less than 0. Total score set to 1" << endl;
-        totalPoints = 1;
+        total = 1;
     }
-    else {
-        totalPoints = total;
-    }
+    totalPoints = total;
 }
 
 double const Assignment::getTotalPoints() {
