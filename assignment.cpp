@@ -11,6 +11,8 @@ Assignment::Assignment( const string name,
     totalPoints = total;
 }
 
+Assignment::~Assignment() {}
+
 double const Assignment::getTotalPoints() {
     return totalPoints;
 }

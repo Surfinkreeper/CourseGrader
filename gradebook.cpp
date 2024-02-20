@@ -1,7 +1,8 @@
 #include "header.h"
 
-Gradebook::Gradebook() {
-}
+Gradebook::Gradebook() {}
+
+Gradebook::~Gradebook() {}
 
 void Gradebook::addEntry(Assignment* key, double score) {
     grades.push_back(make_pair(key,score));

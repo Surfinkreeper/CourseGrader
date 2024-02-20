@@ -31,10 +31,11 @@ class Course {
         bool isStudentInCourse(Student* checkStudent);
         bool isAssignmentInCourse(Assignment* checkAssignment);
     public:
-        // Constructors
+        // Constructor/Deconstructor
         Course( const string name = "BLANK NAME",
                 const string description = "BLANK DESC",
                 const string instructor = "BLANK INSTRUCTOR");
+        ~Course();
         // Accessors / Print
         void const printStudents();
         void const printAssignments();
@@ -55,9 +56,10 @@ class Student {
         int id;
         unordered_map<string,Gradebook*> grademap;
     public:
-        // Constructors
+        // Constructor/Deconstructor
         Student(const string name = "John Doe",
                 const int id = 0    );
+        ~Student();
         // Accessors / Print
         string const getName();
         void printDetails();
@@ -74,10 +76,11 @@ class Assignment {
         string description;
         double totalPoints;
     public:
-        // Constructors
+        // Constructor/Deconstructor
         Assignment( const string name = "BLANK NAME",
                     const string description = "BLANK DESCRIPTION",
                     double total = 1.0);
+        ~Assignment();
         // Accessors / Print
         double const getTotalPoints();
         string const getName();
@@ -91,8 +94,9 @@ class Gradebook {
         // Helper function
         double getPercent();
     public:
-        // Constructor
+        // Constructor/Deconstructor
         Gradebook();
+        ~Gradebook();
 
         void addEntry(Assignment* key, double score);
         char getLetterGrade();

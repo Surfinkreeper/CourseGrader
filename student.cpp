@@ -4,6 +4,8 @@ Student::Student(   const string name,
                     const int id    )
                     : name(name), id(id) {}
 
+Student::~Student() {}
+
 void Student::printDetails() {
     cout << "Name: " << name << "\tID: " << id << endl;
 }

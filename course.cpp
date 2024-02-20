@@ -5,6 +5,8 @@ Course::Course( const string name,
                 const string instructor ) 
                 : name(name), description(description), instructor(instructor) {}
 
+Course::~Course() {}
+
 void const Course::printStudents() {
     if( students.empty() ) {
         cout << "Course has no students at the moment." << endl;
